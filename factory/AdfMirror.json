@@ -1,0 +1,9 @@
+{
+	"name": "AdfMirror",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "3f31af35-dd65-477b-b843-73a8b0cc8a5d",
+		"tenantId": "07c55e10-9852-4ea6-9c3e-749904576295"
+	}
+}

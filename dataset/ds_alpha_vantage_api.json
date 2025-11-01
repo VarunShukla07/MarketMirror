@@ -1,0 +1,23 @@
+{
+	"name": "ds_alpha_vantage_api",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_rest_alphavantage",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"symbol": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"typeProperties": {
+			"relativeUrl": {
+				"value": "?function=TIME_SERIES_DAILY&symbol=@{dataset().symbol}&apikey=R4SIQEO7TDUAX3FZ&datatype=json\n",
+				"type": "Expression"
+			}
+		},
+		"schema": []
+	}
+}

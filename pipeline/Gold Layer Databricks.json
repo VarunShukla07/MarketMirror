@@ -15,7 +15,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Workspace/Users/subhamgcon@gmail.com/Gold Layer"
+					"notebookPath": "/Users/subhamgcon@gmail.com/Gold Layer"
 				},
 				"linkedServiceName": {
 					"referenceName": "AzureDatabricksLinkedService",

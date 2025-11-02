@@ -1,5 +1,5 @@
 {
-	"name": "Databricks Execution",
+	"name": "Snowflake Connection Execution",
 	"properties": {
 		"activities": [
 			{
@@ -15,7 +15,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Users/subhamgcon@gmail.com/Converting JSON to CSV"
+					"notebookPath": "/Users/subhamgcon@gmail.com/Snowflake Connection"
 				},
 				"linkedServiceName": {
 					"referenceName": "AzureDatabricksLinkedService",

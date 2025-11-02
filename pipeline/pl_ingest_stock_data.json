@@ -3,67 +3,6 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
-				"type": "Copy",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
-				"dependsOn": [],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"source": {
-						"type": "RestSource",
-						"httpRequestTimeout": "00:01:40",
-						"requestInterval": "00.00:00:00.010",
-						"requestMethod": "GET",
-						"paginationRules": {
-							"supportRFC5988": "true"
-						}
-					},
-					"sink": {
-						"type": "JsonSink",
-						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings"
-						},
-						"formatSettings": {
-							"type": "JsonWriteSettings"
-						}
-					},
-					"enableStaging": false
-				},
-				"inputs": [
-					{
-						"referenceName": "ds_alpha_vantage_api",
-						"type": "DatasetReference",
-						"parameters": {
-							"symbol": "AAPL"
-						}
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "ds_raw_adls_stock",
-						"type": "DatasetReference",
-						"parameters": {
-							"folderPath": {
-								"value": "@concat('alpha_vantage/daily/', formatDateTime(utcnow(), 'yyyy/MM/dd'))\n",
-								"type": "Expression"
-							},
-							"fileName": {
-								"value": "@concat('AAPL','.json')",
-								"type": "Expression"
-							}
-						}
-					}
-				]
-			},
-			{
 				"name": "ForEach1",
 				"type": "ForEach",
 				"dependsOn": [
@@ -236,6 +175,29 @@
 				"typeProperties": {
 					"pipeline": {
 						"referenceName": "Gold Layer Databricks",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Execute Snowflake Pipeline",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Execute Gold Layer Pipeline",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Snowflake Connection Execution",
 						"type": "PipelineReference"
 					},
 					"waitOnCompletion": true

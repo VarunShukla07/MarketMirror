@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "AdfMirror"
+		},
+		"AzureDatabricksLinkedService_accessToken": {
+			"value": ""
+		},
+		"ls_adls_raw_accountKey": {
+			"value": ""
+		},
+		"AzureDatabricksLinkedService_properties_typeProperties_existingClusterId": {
+			"value": "1017-105221-tp0btd0d"
+		},
+		"ls_adls_raw_properties_typeProperties_url": {
+			"value": "https://stgmirror.dfs.core.windows.net/"
+		},
+		"ls_rest_alphavantage_properties_typeProperties_url": {
+			"value": "https://www.alphavantage.co/query"
+		}
+	}
+}

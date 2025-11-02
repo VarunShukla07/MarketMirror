@@ -1,1 +1,1 @@
-Hello this is an initialization
+Built an end-to-end stock analytics pipeline integrating Databricks (ETL), Snowflake (data warehousing), and Tableau (BI dashboards) to visualize volatility, momentum, and risk metrics for multi-symbol stock data.
